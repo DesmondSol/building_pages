@@ -16,13 +16,12 @@ class TransactionList extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              width: 10,
+              width: 70,
             ),
             Column(
               children: [
-                Text('No of'),
                 Text(
-                  'Participants',
+                  'Name',
                 ),
               ],
             ),
@@ -30,7 +29,7 @@ class TransactionList extends StatelessWidget {
               width: 50,
             ),
             Text(
-              'Title',
+              'Email',
             )
           ],
         ),
@@ -56,21 +55,23 @@ class TransactionList extends StatelessWidget {
                       elevation: 5,
                       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                       child: ListTile(
-                        leading: CircleAvatar(
-                          radius: 30,
-                          child: Padding(
-                            padding: EdgeInsets.all(6),
-                            child: FittedBox(
-                                child: Text(
-                                    '${transaction[index].phoneNo.toStringAsFixed(0)}')),
-                          ),
+                        leading: Padding(
+                          padding: EdgeInsets.all(6),
+                          child: FittedBox(
+                              child:
+                                  Text('${transaction[index].id.toString()}')),
                         ),
                         title: Text(transaction[index].name,
                             style: Theme.of(context).textTheme.headline6),
-                        subtitle: Text(
-                          DateFormat.yMMMd().format(transaction[index]
-                              .date), //'yyyy-MM-dd date constructor
-                          style: TextStyle(color: Colors.blueGrey),
+                        subtitle: Column(
+                          children: [
+                            Text(
+                              transaction[index]
+                                  .email, //'yyyy-MM-dd date constructor
+                              style: TextStyle(color: Colors.blueGrey),
+                            ),
+                            Text(transaction[index].phoneNo.toString())
+                          ],
                         ),
                         trailing: IconButton(
                           icon: Icon(Icons.delete_outline),
