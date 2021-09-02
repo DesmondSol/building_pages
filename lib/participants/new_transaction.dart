@@ -17,10 +17,11 @@ class _NewTransactionState extends State<NewTransaction> {
   final _nameController = TextEditingController();
   final _phoneNoContoller = TextEditingController();
   final _emailController = TextEditingController();
-  DateTime _selectedDate = DateTime.now();
 
   void _submitData() {
-    if (_nameController.text.isEmpty || _phoneNoContoller.text.isEmpty) {
+    if (_nameController.text.isEmpty ||
+        _phoneNoContoller.text.isEmpty ||
+        _emailController.text.isEmpty) {
       print('please enter values');
       Fluttertoast.showToast(
           msg: "please enter values",
@@ -32,11 +33,12 @@ class _NewTransactionState extends State<NewTransaction> {
           fontSize: 16.0);
       return;
     }
+    final enteredEmail = _emailController.text;
     final enteredTitle = _nameController.text;
-    final enteredAmnt = double.parse(_phoneNoContoller.text);
+    final enteredPhoneNo = int.parse(_phoneNoContoller.text);
     // addtx(titleController.text,  // another way of putting it
     // double.parse(amountContoller.text)
-    if (enteredAmnt <= 0) {
+    if (enteredPhoneNo <= 0) {
       print('please enter realistic values');
       Fluttertoast.showToast(
           msg: "please enter realistic values",
@@ -48,7 +50,7 @@ class _NewTransactionState extends State<NewTransaction> {
           fontSize: 16.0);
       return;
     }
-    widget.addtx(enteredTitle, enteredAmnt, _selectedDate);
+    widget.addtx(enteredTitle, enteredPhoneNo, enteredEmail); //check
     Navigator.of(context).pop();
   }
 

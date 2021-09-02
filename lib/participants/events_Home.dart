@@ -25,7 +25,10 @@ class MyHomeePage extends State<MyHomePage> {
   ];
 
   void _addNewTransa(
-      String participantName, String email, int phoneNo, String qrCode) {
+    String participantName,
+    String email,
+    int phoneNo,
+  ) {
     int b;
     if (_userTran.isEmpty) {
       b = 1;
@@ -33,6 +36,7 @@ class MyHomeePage extends State<MyHomePage> {
     } else {
       b = _userTran.last.id + 1;
     }
+    String qrCode = participantName + b.toString();
     // print('$b $txtitle $txamount');
     final newTx = Transaction(
       id: b,
