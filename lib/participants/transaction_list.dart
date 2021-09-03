@@ -16,7 +16,7 @@ class TransactionList extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              width: 70,
+              width: 74,
             ),
             Column(
               children: [
@@ -26,10 +26,10 @@ class TransactionList extends StatelessWidget {
               ],
             ),
             SizedBox(
-              width: 50,
+              width: 140,
             ),
             Text(
-              'Email',
+              'Phone no',
             )
           ],
         ),
@@ -56,23 +56,56 @@ class TransactionList extends StatelessWidget {
                       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                       child: ListTile(
                         leading: Padding(
-                          padding: EdgeInsets.all(6),
+                          padding: EdgeInsets.all(2),
                           child: FittedBox(
                               child:
                                   Text('${transaction[index].id.toString()}')),
                         ),
-                        title: Text(transaction[index].name,
-                            style: Theme.of(context).textTheme.headline6),
-                        subtitle: Column(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              transaction[index]
-                                  .email, //'yyyy-MM-dd date constructor
-                              style: TextStyle(color: Colors.blueGrey),
+                            FittedBox(
+                              child: Column(
+                                children: [
+                                  Text(transaction[index].name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6),
+                                  Text(
+                                    transaction[index]
+                                        .email, //'yyyy-MM-dd date constructor
+                                    style: TextStyle(color: Colors.blueGrey),
+                                  ),
+                                ],
+                              ),
                             ),
-                            Text(transaction[index].phoneNo.toString())
+                            // SizedBox(
+                            //   width: 34,
+                            // ),
+                            FittedBox(
+                              child: Text(
+                                transaction[index].phoneNo.toString(),
+                              ),
+                            ),
+                            OutlinedButton(
+                              child: Text(
+                                "Qr code",
+                                //           style: TextStyle(fontSize: 20.0),
+                              ),
+                              // style: Borde,
+                              // highlightedBorderColor: Colors.red,
+                              // shape: RoundedRectangleBorder(
+                              //     borderRadius: BorderRadius.circular(15)),
+                              onPressed: () {},
+                            ),
                           ],
                         ),
+                        // subtitle: Text(
+                        //   transaction[index]
+                        //       .email, //'yyyy-MM-dd date constructor
+                        //   style: TextStyle(color: Colors.blueGrey),
+                        //   textAlign: TextAlign.left,
+                        // ),
                         trailing: IconButton(
                           icon: Icon(Icons.delete_outline),
                           color: Theme.of(context).errorColor,

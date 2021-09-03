@@ -41,8 +41,8 @@ class MyHomeePage extends State<MyHomePage> {
     final newTx = Transaction(
       id: b,
       name: participantName,
-      phoneNo: phoneNo,
       email: email,
+      phoneNo: phoneNo,
       qrCode: qrCode,
     );
 

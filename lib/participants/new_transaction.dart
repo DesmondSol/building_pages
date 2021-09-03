@@ -50,7 +50,7 @@ class _NewTransactionState extends State<NewTransaction> {
           fontSize: 16.0);
       return;
     }
-    widget.addtx(enteredTitle, enteredPhoneNo, enteredEmail); //check
+    widget.addtx(enteredTitle, enteredEmail, enteredPhoneNo); //check
     Navigator.of(context).pop();
   }
 
