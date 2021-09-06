@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'participants/events_Home.dart';
+import 'participants/Participants_Home.dart';
 
 void main() {
   runApp(MyApp());
