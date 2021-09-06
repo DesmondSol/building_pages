@@ -1,10 +1,10 @@
-class Transaction {
+class Event_Transaction {
   String id;
   String title;
   int participantAmount;
   DateTime date;
 
-  Transaction(
+  Event_Transaction(
       {required this.id,
       required this.title,
       required this.date,

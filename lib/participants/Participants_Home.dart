@@ -1,8 +1,9 @@
 import './transaction_list.dart';
-
+import 'package:hive/hive.dart';
 import './new_transaction.dart';
 import 'package:flutter/material.dart';
 
+import 'boxes.dart';
 import 'models/transaction.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,6 +12,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeePage extends State<MyHomePage> {
+  @override
+  void dispose() {
+    Hive.close(); //close all
+    // Hive.box('Participants').close();
+    super.dispose();
+  }
+
   final List<Transaction> _userTran = [
     Transaction(
         id: 1,
@@ -46,9 +54,12 @@ class MyHomeePage extends State<MyHomePage> {
       qrCode: qrCode,
     );
 
-    setState(() {
-      _userTran.add(newTx);
-    });
+    // setState(() {
+    //   _userTran.add(newTx);
+    // });
+
+    final box = Boxes.getTransactions();
+    box.add(newTx);
   }
 
   void deleteTransaction(int id) {

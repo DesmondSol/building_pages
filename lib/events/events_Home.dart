@@ -3,7 +3,7 @@ import './transaction_list.dart';
 import './new_transaction.dart';
 import 'package:flutter/material.dart';
 
-import 'models/transaction.dart';
+import 'models/eventTransaction.dart';
 
 class MyHomePage extends StatefulWidget {
 
@@ -12,8 +12,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeePage extends State<MyHomePage> {
-  final List<Transaction> _userTran = [
-       Transaction(
+  final List<Event_Transaction> _userTran = [
+       Event_Transaction(
            id: '1', title: 'general Gathering', participantAmount: 49, date: DateTime.now()),
     //   Transaction(
     //       id: '2', title: 'New slippers', amount: 9.9, date: DateTime.now()),
@@ -31,7 +31,7 @@ class MyHomeePage extends State<MyHomePage> {
       b = int.parse(_userTran.last.id) + 1;
     }
     // print('$b $txtitle $txamount');
-    final newTx = Transaction(
+    final newTx = Event_Transaction(
       id: b.toString(),
       title: txtitle,
       participantAmount: participantAmount,
