@@ -104,7 +104,7 @@ class MyHomeePage extends State<MyHomePage> {
           ],
           leading: Icon(Icons.access_time_sharp),
           leadingWidth: 70,
-          title: const Text('Events'),
+          title: const Text('Participants'),
           //  centerTitle: true,
         ),
         body: SingleChildScrollView(
