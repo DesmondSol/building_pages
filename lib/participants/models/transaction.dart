@@ -1,22 +1,9 @@
-import 'package:hive/hive.dart';
+class Transaction {
 
-part 'transaction.g.dart';
-
-@HiveType(typeId: 0)
-class Transaction extends HiveObject{
-  @HiveField(0)
   int id;
-
-  @HiveField(1)
   String name;
-
-  @HiveField(2)
   String email;
-
-  @HiveField(3)
   int phoneNo;
-
-  @HiveField(4)
   String qrCode;
 
   Transaction(

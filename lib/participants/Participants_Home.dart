@@ -1,10 +1,9 @@
 import './transaction_list.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
 import './new_transaction.dart';
 import 'package:flutter/material.dart';
 
-import 'boxes.dart';
+
 import 'models/transaction.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,25 +12,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeePage extends State<MyHomePage> {
-  @override
-  void dispose() {
-    Hive.close(); //close all
-    // Hive.box('Participants').close();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   Hive.close(); //close all
+  //   // Hive.box('Participants').close();
+  //   super.dispose();
+  // }
 
-  // final List<Transaction> _userTran = [
-  //   Transaction(
-  //       id: 1,
-  //       name: 'Solomon Tigabu',
-  //       email: 'soltig66@gmail.com',
-  //       phoneNo: 0923214663,
-  //       qrCode: '000000'),
-  //   //   Transaction(
-  //   //       id: '2', title: 'New slippers', amount: 9.9, date: DateTime.now()),
-  //   //   Transaction(
-  //   //       id: '3', title: 'New phone', amount: 149.9, date: DateTime.now())
-  // ];
+  final List<Transaction> _userTran = [
+    Transaction(
+        id: 1,
+        name: 'Solomon Tigabu',
+        email: 'soltig66@gmail.com',
+        phoneNo: 0923214663,
+        qrCode: '000000'),
+    //   Transaction(
+    //       id: '2', title: 'New slippers', amount: 9.9, date: DateTime.now()),
+    //   Transaction(
+    //       id: '3', title: 'New phone', amount: 149.9, date: DateTime.now())
+  ];
 
   void _addNewTransa(
     String participantName,
@@ -55,12 +54,12 @@ class MyHomeePage extends State<MyHomePage> {
       qrCode: qrCode,
     );
 
-    // setState(() {
-    //   _userTran.add(newTx);
-    // });
+    setState(() {
+      _userTran.add(newTx);
+    });
 
-    final box = Boxes.getTransactions();
-    box.add(newTx); //I am here
+    // final box = Boxes.getTransactions();
+    // box.add(newTx); //I am here
   }
 
   void deleteTransaction(int id) {
@@ -124,13 +123,13 @@ class MyHomeePage extends State<MyHomePage> {
             child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // TransactionList(_userTran, deleteTransaction),
-            ValueListenableBuilder<Box<Transaction>>(
-                valueListenable: Boxes.getTransactions().listenable(),
-                builder: (context, box, _) {
-                  final transactions = box.values.toList().cast<Transaction>();
-                  return TransactionList(transactions, deleteTransaction);
-                })
+             TransactionList(_userTran, deleteTransaction),
+            // ValueListenableBuilder<Box<Transaction>>(
+            //     valueListenable: Boxes.getTransactions().listenable(),
+            //     builder: (context, box, _) {
+            //       final transactions = box.values.toList().cast<Transaction>();
+            //       return TransactionList(transactions, deleteTransaction);
+            //     })
           ],
         )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
