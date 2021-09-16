@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'participants/Participants_Home.dart';
+import 'participants_copy/Participants_Home.dart';
 
 void main() {
 //async {

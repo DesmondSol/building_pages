@@ -118,22 +118,20 @@ class MyHomeePage extends State<MyHomePage> {
           title: const Text('Participants'),
           //  centerTitle: true,
         ),
-        body: Container(
-          child: SingleChildScrollView(
-              //for full screen scroll
-              child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-               TransactionList(_userTran, deleteTransaction),
-              // ValueListenableBuilder<Box<Transaction>>(
-              //     valueListenable: Boxes.getTransactions().listenable(),
-              //     builder: (context, box, _) {
-              //       final transactions = box.values.toList().cast<Transaction>();
-              //       return TransactionList(transactions, deleteTransaction);
-              //     })
-            ],
-          )),
-        ),
+        body: SingleChildScrollView(
+            //for full screen scroll
+            child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+             TransactionList(_userTran, deleteTransaction),
+            // ValueListenableBuilder<Box<Transaction>>(
+            //     valueListenable: Boxes.getTransactions().listenable(),
+            //     builder: (context, box, _) {
+            //       final transactions = box.values.toList().cast<Transaction>();
+            //       return TransactionList(transactions, deleteTransaction);
+            //     })
+          ],
+        )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Builder(
           builder: (context) => FloatingActionButton(
